@@ -5,6 +5,12 @@
 
 trigger:
 - master
+resources:
+  repositories:
+    - repository: Test-OWASPZAP
+      type: git
+      name: Dept SEC/Test-OWASPZAP
+      ref: refs/heads/master
 
 pool:
   vmImage: ubuntu-latest
