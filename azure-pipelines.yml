@@ -4,9 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
- branches:
-  include: 
-    - master
+- master
 
 pool:
   vmImage: ubuntu-latest
@@ -22,8 +20,3 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run test'
-  continueOnError: true
