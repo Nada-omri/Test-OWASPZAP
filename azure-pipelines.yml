@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
@@ -15,20 +15,7 @@ steps:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
 
-#- script: |
-#    cd 'owasap zap/client'
-#    npm install
- #   npm run build
- # displayName: 'npm install and build'
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: '$(Build.SourcesDirectory)/Test-OWASPZAP/client'
-    customCommand: 'install'
-  continueOnError: true
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: '$(Build.SourcesDirectory)/Test-OWASPZAP/client'
-    customCommand: 'run build'
-  continueOnError: true
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
