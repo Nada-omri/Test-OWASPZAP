@@ -15,16 +15,10 @@ steps:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: '$(Build.SourcesDirectory)/Test-OWASPZAP/client'
-    customCommand: 'install'
-  displayName: 'npm install'
 
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: '$(Build.SourcesDirectory)/Test-OWASPZAP/client'
-    customCommand: 'run build'
-  displayName: 'npm run build'
+- script: |
+    cd client
+    npm install
+    npm run build
+    npm run test
+  displayName: 'npm install and build'
