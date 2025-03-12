@@ -40,4 +40,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-displayName: 'Publish build artifacts'
+  displayName: 'Publish build artifacts'
